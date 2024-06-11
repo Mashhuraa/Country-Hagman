@@ -73,32 +73,6 @@ A function to check if the player has won:
 
 def check_winning(secret_word, guessed_letters):
     return all(letter in guessed_letters for letter in secret_word)
-    
-Main Game Loop
-----------------------------------------------
-The main game loop that interacts with the player:
-
-def play_game():
-    guessed_letters = set()
-    secret_word = random.choice(countries).lower()
-    chances = len(secret_word) + 2
-    print("Welcome to Country Hangman!")
-    while chances > 0:
-        print("\nCurrent state:", display_current_state(secret_word, guessed_letters))
-        print("Chances remaining:", chances)
-         guess = input("Enter a letter: ").lower()
-         if process_guess(secret_word, guessed_letters, guess):
-            print("Correct guess!")
-        else:
-            print("Incorrect guess!")
-            chances -= 1
-       if check_winning(secret_word, guessed_letters):
-            print("\nCongratulations! You guessed the word:", secret_word)
-            return
-         print("\nGame over! The word was:", secret_word)
-
-if __name__ == "__main__":
-    play_game()
 
 GitHub Repository
 ----------------------------
